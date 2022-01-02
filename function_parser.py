@@ -48,8 +48,14 @@ def is_valid_func(func_string):
         if func_string[0] == '-':
             is_valid_func(func_string[1:])
         
+def string_to_func(func_string):
+    func_string = func_string.replace(' ', '') # removes whitespace
+    is_valid_func(func_string)
+    func_string = func_string.replace('^', '**')
+    return lambda x: eval(func_string.replace('x', '(' + str(x) + ')'))
 
 
+# Problem solved without parsing
 def func_parser(func):
     """
     Turns a string expression into a list of tokens. 
@@ -101,11 +107,6 @@ def helper(tokens):
     if '(' in tokens:
         # Case 1: '(' is at the beginning of the list
         # Case 2: '(' is after a number being distributed
-        4
-
-print(func_parser('4((x + 3)3)5')) # This works, but more complex functions don't.
+        pass
 
 # Look into converting infix list of tokens to prefix ?
-    
-
-    

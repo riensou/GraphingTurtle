@@ -9,7 +9,7 @@ x_min = input()
 if x_min and is_integer(x_min):
     x_min = int(x_min)
 
-    print('Choose a maximum value.')
+    print('Choose a maximum x value.')
     x_max = input()
     if x_max and (is_integer(x_max) and int(x_max) > x_min):
         x_max = int(x_max)
@@ -34,5 +34,4 @@ else:
 
 # Enter function, y(x)
 print('Choose a function to graph.')
-func = input('y = ')
-func = func_parser(func)
+func = string_to_func(input('y = '))
