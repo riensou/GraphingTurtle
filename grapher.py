@@ -1,14 +1,25 @@
 import turtle
 
+x_min = -10
+y_min = -10
+x_max = 10
+y_max = 10
+
+turtle.setworldcoordinates(-5, -5, 5, 5)
+
 window = turtle.Screen()
 celine = turtle.Turtle()
 
-def draw_axis(rotation):
+# Draw both the x and y axis
+def draw_axis(axis):
     t = turtle.Turtle()
-    t.left(rotation)
-    t.forward(max(window.window_width(), window.window_height()) / 2)
-    t.backward(max(window.window_width(), window.window_height()))
+    if axis == 'x':
+        t.goto(x_max, 0)
+        t.goto(x_min, 0)
+    else:
+        t.goto(0, y_max)
+        t.goto(0, y_min)
+draw_axis('x')
+draw_axis('y')
 
-draw_axis(0) # x-axis
-draw_axis(90) # y-axis
-
+window.mainloop()
